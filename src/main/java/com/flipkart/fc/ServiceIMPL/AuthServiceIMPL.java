@@ -76,8 +76,6 @@ public class AuthServiceIMPL implements AuthService {
 
 	}
 
-
-
 	private <T extends User> T mapToUser(UserRequest userRequest) {
 		User user = null;
 		switch (userRequest.getUserRole()) {
@@ -97,8 +95,6 @@ public class AuthServiceIMPL implements AuthService {
 		return (T) user;
 	}
 
-
-
 	@Override
 	public ResponseEntity<ResponseStructure<UserResponse>> findUserById(int userId) throws Exception {
 
@@ -113,7 +109,6 @@ public class AuthServiceIMPL implements AuthService {
 		structure.setData(mapToUserResponce(user));
 		return new ResponseEntity<ResponseStructure<UserResponse>>(structure, HttpStatus.CREATED);
 	}
-
 
 	@Override
 	public ResponseEntity<ResponseStructure<UserResponse>> deteteUserById(int userId) throws Exception {
