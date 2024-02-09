@@ -44,8 +44,8 @@ public class AuthExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<Object> handlerUserNotFoundById(UserNotFoundById ex){
 		return structure(HttpStatus.NOT_FOUND,ex.getMessage(),"User Doesn't Exist!!!");
 	}
-	@ExceptionHandler (IllegalArgumentException.class)
-	public ResponseEntity<Object> handlerUserNotFoundById(IllegalArgumentException ex){
+	@ExceptionHandler (IllagalArgumentException.class)
+	public ResponseEntity<Object> handlerUserNotFoundById(IllagalArgumentException ex){
 		return structure(HttpStatus.BAD_REQUEST,ex.getMessage(),"Request Not Applicable");
 	}
 }

@@ -1,8 +1,9 @@
 package com.flipkart.fc.Entity;
 
+import java.util.List;
+
 import com.flipkart.fc.Enum.UserRole;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,5 +44,10 @@ public class User {
 	private boolean isEmailVerified;
 	private boolean isDeleted;
 	
+	@OneToMany
+	private List<AccessToken> accessToken;
+	
+	@OneToMany
+	private List<RefreshToken> refreshToken;
 	
 }
