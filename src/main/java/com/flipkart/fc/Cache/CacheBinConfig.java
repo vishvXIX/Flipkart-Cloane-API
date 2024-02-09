@@ -17,7 +17,7 @@ public class CacheBinConfig {
 	
 	@Bean
 	public CacheStore<String> otpCacheStore() {
-		return new CacheStore<String>(Duration.ofSeconds(30)); 
+		return new CacheStore<String>(Duration.ofMinutes(1)); 
 	}
 	
 }
