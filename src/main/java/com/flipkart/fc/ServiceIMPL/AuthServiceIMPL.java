@@ -135,10 +135,17 @@ public class AuthServiceIMPL implements AuthService {
 
 	}
 
-
-
-
-
+	private <T extends User> T mapToUser(UserRequest userRequest) {
+		User user = null;
+		switch (userRequest.getUserRole()) {
+		case CUSTOMER -> {
+			user = new Customer();
+		}
+		case SELLER -> {
+			user = new Seller();
+		}
+		default -> throw new IllagalArgumentException("Unexpected value: " + userRequest.getUserRole());
+		}
 
 
 	@Override
@@ -155,7 +162,6 @@ public class AuthServiceIMPL implements AuthService {
 		structure.setData(mapToUserResponce(user));
 		return new ResponseEntity<ResponseStructure<UserResponse>>(structure, HttpStatus.FOUND);
 	}
-
 
 	@Override
 	public ResponseEntity<ResponseStructure<UserResponse>> deteteUserById(int userId) throws Exception {
